@@ -25,10 +25,12 @@ const TONE_DOT: Record<"info" | "warning" | "success" | "neutral", string> = {
   neutral: "bg-bg-neutral-bold-default",
 };
 
-function shiftTitle(a: Assignment): string {
+function shiftTitle(a: Assignment, startAt: string): string {
   if (a.isAllHands) return "전원 참여";
   const meta = ROLE_META[a.role];
-  return a.subRole ? `${meta.short} · ${a.subRole}` : meta.short;
+  const short =
+    a.role === "setup" && formatHHMM(startAt) === "17:30" ? "철수" : meta.short;
+  return a.subRole ? `${short} · ${a.subRole}` : short;
 }
 
 function shiftDescription(a: Assignment): string {
@@ -41,7 +43,13 @@ function shiftToneDotClass(a: Assignment): string {
   return TONE_DOT[ROLE_META[a.role].tone];
 }
 
-function ShiftHeadline({ assignments }: { assignments: Assignment[] }) {
+function ShiftHeadline({
+  assignments,
+  startAt,
+}: {
+  assignments: Assignment[];
+  startAt: string;
+}) {
   return (
     <div className="flex flex-col gap-2">
       {assignments.map((a, idx) => (
@@ -52,7 +60,7 @@ function ShiftHeadline({ assignments }: { assignments: Assignment[] }) {
               aria-hidden="true"
             />
             <span className="text-title-18-semibold text-text-default break-keep">
-              {shiftTitle(a)}
+              {shiftTitle(a, startAt)}
             </span>
           </div>
           <p className="text-body-14-regular text-text-subtle break-keep">
@@ -147,7 +155,7 @@ function TimelineRow({
             </p>
           </div>
         ) : (
-          <ShiftHeadline assignments={item.assignments} />
+          <ShiftHeadline assignments={item.assignments} startAt={item.slot.startAt} />
         )}
       </div>
     </div>
