@@ -73,7 +73,7 @@ export default async function Home() {
       </main>
 
       <footer className="flex flex-col items-center gap-2 px-5 py-4 text-center text-body-12-regular text-text-subtlest">
-        <span>이름을 선택하면 최신 시트 데이터를 다시 불러옵니다.</span>
+        <span>이름을 선택하면 마스터 시트의 최신 데이터를 불러옵니다.</span>
         <a
           href="https://github.com/sei0/omo-what-now"
           target="_blank"
