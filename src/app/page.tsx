@@ -1,4 +1,4 @@
-import { ArrowUpRight, CalendarBlank, Users } from "@phosphor-icons/react/dist/ssr";
+import { ArrowUpRight, CalendarBlank, GithubLogo, Users } from "@phosphor-icons/react/dist/ssr";
 import { fetchSchedule } from "@/lib/fetchSchedule";
 import { EVENT_DATE } from "@/lib/config";
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -57,12 +57,32 @@ export default async function Home() {
                 Luma에서 행사 정보 보기
               </span>
             </a>
+            <a
+              href="https://docs.google.com/spreadsheets/d/1mWr4NIXbc6wiWDyG4X3Oyhrd9cYyXCTFpLgdfoT7NOE/edit?gid=784194405#gid=784194405"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="-mx-2 -my-1 flex items-center gap-2 rounded-md px-2 py-1 transition-colors hover:bg-interaction-hovered"
+            >
+              <ArrowUpRight size={16} className="text-icon-default shrink-0" />
+              <span className="text-body-14-medium text-text-default underline decoration-border-default decoration-1 underline-offset-4">
+                마스터시트 바로가기
+              </span>
+            </a>
           </div>
         </div>
       </main>
 
-      <footer className="px-5 py-4 text-center text-body-12-regular text-text-subtlest">
-        이름을 선택하면 최신 시트 데이터를 다시 불러옵니다.
+      <footer className="flex flex-col items-center gap-2 px-5 py-4 text-center text-body-12-regular text-text-subtlest">
+        <span>이름을 선택하면 최신 시트 데이터를 다시 불러옵니다.</span>
+        <a
+          href="https://github.com/sei0/omo-what-now"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1 rounded-md px-2 py-1 text-text-subtle transition-colors hover:bg-interaction-hovered"
+        >
+          <GithubLogo size={14} className="shrink-0" />
+          <span>sei0/omo-what-now</span>
+        </a>
       </footer>
     </div>
   );
