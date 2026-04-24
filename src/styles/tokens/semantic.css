@@ -1,0 +1,402 @@
+/* =============================================================================
+   Semantic Tokens
+   =============================================================================
+   Purpose-driven tokens that give meaning to primitive colors.
+   These are the tokens components actually use.
+
+   - Light mode defaults are in :root
+   - Dark mode overrides are in html.dark
+   ============================================================================= */
+
+/* --- Light Mode --- */
+
+:root {
+  /* Elevation */
+  --color-elevation-surface-default: oklch(100.0% 0.000 89.9);
+  --color-elevation-surface-raised-default: oklch(100.0% 0.000 89.9);
+  --color-elevation-surface-raised-hovered: var(--color-taupe-50);
+  --color-elevation-surface-raised-pressed: var(--color-taupe-50);
+  --color-elevation-surface-sunken-default: var(--color-taupe-100);
+  --color-elevation-surface-overlay-default: oklch(100.0% 0.000 89.9);
+  --color-elevation-surface-overlay-hovered: var(--color-taupe-50);
+  --color-elevation-surface-overlay-pressed: var(--color-taupe-50);
+  --color-elevation-shadow-default: oklch(26.8% 0.006 34.3 / 12%);
+  --color-elevation-shadow-strong: oklch(21.6% 0.006 56.0 / 25%);
+
+  /* Interaction */
+  --color-interaction-hovered: oklch(0.0% 0.000 0.0 / 5%);
+  --color-interaction-pressed: oklch(0.0% 0.000 0.0 / 10%);
+  --color-interaction-selected: oklch(0.0% 0.000 0.0 / 5%);
+  --color-interaction-disabled: oklch(0.0% 0.000 0.0 / 40%);
+
+  /* Background — Neutral */
+  --color-bg-neutral-default: oklch(0.0% 0.000 0.0 / 5%);
+  --color-bg-neutral-hovered: oklch(0.0% 0.000 0.0 / 8%);
+  --color-bg-neutral-pressed: oklch(0.0% 0.000 0.0 / 8%);
+  --color-bg-neutral-subtle-default: oklch(0.0% 0.000 0.0 / 3%);
+  --color-bg-neutral-subtle-hovered: oklch(0.0% 0.000 0.0 / 8%);
+  --color-bg-neutral-subtle-pressed: oklch(0.0% 0.000 0.0 / 8%);
+  --color-bg-neutral-bold-default: var(--color-taupe-900);
+  --color-bg-neutral-bold-hovered: var(--color-taupe-700);
+  --color-bg-neutral-bold-pressed: var(--color-taupe-700);
+
+  /* Background — Success */
+  --color-bg-success-default: var(--color-green-100);
+  --color-bg-success-hovered: var(--color-green-200);
+  --color-bg-success-pressed: var(--color-green-200);
+  --color-bg-success-bold-default: var(--color-green-500);
+  --color-bg-success-bold-hovered: var(--color-green-600);
+  --color-bg-success-bold-pressed: var(--color-green-600);
+
+  /* Background — Warning */
+  --color-bg-warning-default: var(--color-amber-100);
+  --color-bg-warning-hovered: var(--color-amber-200);
+  --color-bg-warning-pressed: var(--color-amber-200);
+  --color-bg-warning-bold-default: var(--color-amber-500);
+  --color-bg-warning-bold-hovered: var(--color-amber-600);
+  --color-bg-warning-bold-pressed: var(--color-amber-600);
+
+  /* Background — Error */
+  --color-bg-error-default: var(--color-red-100);
+  --color-bg-error-hovered: var(--color-red-200);
+  --color-bg-error-pressed: var(--color-red-200);
+  --color-bg-error-bold-default: var(--color-red-500);
+  --color-bg-error-bold-hovered: var(--color-red-600);
+  --color-bg-error-bold-pressed: var(--color-red-600);
+
+  /* Background — Info */
+  --color-bg-info-default: var(--color-blue-100);
+  --color-bg-info-hovered: var(--color-blue-200);
+  --color-bg-info-pressed: var(--color-blue-200);
+  --color-bg-info-bold-default: var(--color-blue-500);
+  --color-bg-info-bold-hovered: var(--color-blue-600);
+  --color-bg-info-bold-pressed: var(--color-blue-600);
+
+  /* Background — Input */
+  --color-bg-input-default: oklch(100.0% 0.000 89.9);
+  --color-bg-input-hovered: var(--color-taupe-100);
+  --color-bg-input-pressed: var(--color-taupe-100);
+  --color-bg-input-disabled: oklch(0.0% 0.000 0.0 / 4%);
+
+  /* Background — Selected / Disabled / Skeleton */
+  --color-bg-selected-default: oklch(0.0% 0.000 0.0 / 8%);
+  --color-bg-selected-subtle: oklch(0.0% 0.000 0.0 / 4%);
+  --color-bg-disabled: oklch(0.0% 0.000 0.0 / 10%);
+  --color-bg-skeleton: oklch(0.0% 0.000 0.0 / 8%);
+
+  /* Background — On Image */
+  --color-bg-on-image-default: oklch(0.0% 0.000 0.0 / 40%);
+  --color-bg-on-image-hovered: oklch(0.0% 0.000 0.0 / 50%);
+  --color-bg-on-image-pressed: oklch(0.0% 0.000 0.0 / 60%);
+
+  /* Background — Accent */
+  --color-bg-accent-red: oklch(63.7% 0.208 25.3 / 10%);
+  --color-bg-accent-orange: oklch(70.5% 0.187 47.6 / 10%);
+  --color-bg-accent-amber: oklch(76.9% 0.165 70.1 / 10%);
+  --color-bg-accent-yellow: oklch(79.5% 0.162 86.0 / 10%);
+  --color-bg-accent-lime: oklch(76.8% 0.204 130.8 / 10%);
+  --color-bg-accent-green: oklch(72.3% 0.192 149.6 / 10%);
+  --color-bg-accent-emerald: oklch(69.6% 0.149 162.5 / 10%);
+  --color-bg-accent-teal: oklch(70.4% 0.123 182.5 / 10%);
+  --color-bg-accent-cyan: oklch(71.5% 0.126 215.2 / 10%);
+  --color-bg-accent-sky: oklch(68.5% 0.148 237.3 / 10%);
+  --color-bg-accent-blue: oklch(62.3% 0.188 259.8 / 10%);
+  --color-bg-accent-indigo: oklch(58.5% 0.204 277.1 / 10%);
+  --color-bg-accent-violet: oklch(60.6% 0.219 292.7 / 10%);
+  --color-bg-accent-purple: oklch(62.7% 0.233 303.9 / 10%);
+  --color-bg-accent-fuchsia: oklch(66.7% 0.259 322.1 / 10%);
+  --color-bg-accent-pink: oklch(65.6% 0.212 354.3 / 10%);
+  --color-bg-accent-rose: oklch(64.5% 0.215 16.4 / 10%);
+
+  /* Text */
+  --color-text-default: var(--color-taupe-900);
+  --color-text-subtle: var(--color-taupe-500);
+  --color-text-subtlest: var(--color-taupe-400);
+  --color-text-placeholder: oklch(0.0% 0.000 0.0 / 25%);
+  --color-text-inverse: oklch(100.0% 0.000 89.9);
+  --color-text-inverse-fixed: oklch(100.0% 0.000 89.9);
+  --color-text-selected: var(--color-taupe-900);
+  --color-text-disabled: oklch(0.0% 0.000 0.0 / 30%);
+  --color-text-brand: var(--color-taupe-900);
+  --color-text-link-default: var(--color-blue-600);
+  --color-text-link-hovered: var(--color-blue-700);
+  --color-text-link-visited: var(--color-purple-600);
+  --color-text-success: var(--color-green-600);
+  --color-text-warning: var(--color-amber-600);
+  --color-text-error: var(--color-red-600);
+  --color-text-info: var(--color-blue-600);
+  --color-text-accent-red: var(--color-red-500);
+  --color-text-accent-orange: var(--color-orange-500);
+  --color-text-accent-amber: var(--color-amber-500);
+  --color-text-accent-yellow: var(--color-yellow-500);
+  --color-text-accent-lime: var(--color-lime-500);
+  --color-text-accent-green: var(--color-green-500);
+  --color-text-accent-emerald: var(--color-emerald-500);
+  --color-text-accent-teal: var(--color-teal-500);
+  --color-text-accent-cyan: var(--color-cyan-500);
+  --color-text-accent-sky: var(--color-sky-500);
+  --color-text-accent-blue: var(--color-blue-500);
+  --color-text-accent-indigo: var(--color-indigo-500);
+  --color-text-accent-violet: var(--color-violet-500);
+  --color-text-accent-purple: var(--color-purple-500);
+  --color-text-accent-fuchsia: var(--color-fuchsia-500);
+  --color-text-accent-pink: var(--color-pink-500);
+  --color-text-accent-rose: var(--color-rose-500);
+
+  /* Icon */
+  --color-icon-default: var(--color-taupe-900);
+  --color-icon-subtle: var(--color-taupe-500);
+  --color-icon-subtlest: var(--color-taupe-400);
+  --color-icon-placeholder: oklch(0.0% 0.000 0.0 / 25%);
+  --color-icon-inverse: oklch(100.0% 0.000 89.9);
+  --color-icon-inverse-fixed: oklch(100.0% 0.000 89.9);
+  --color-icon-selected: var(--color-taupe-900);
+  --color-icon-disabled: oklch(0.0% 0.000 0.0 / 25%);
+  --color-icon-brand: var(--color-taupe-900);
+  --color-icon-success: var(--color-green-600);
+  --color-icon-warning: var(--color-amber-600);
+  --color-icon-error: var(--color-red-600);
+  --color-icon-info: var(--color-blue-600);
+  --color-icon-accent-red: var(--color-red-500);
+  --color-icon-accent-orange: var(--color-orange-500);
+  --color-icon-accent-amber: var(--color-amber-500);
+  --color-icon-accent-yellow: var(--color-yellow-500);
+  --color-icon-accent-lime: var(--color-lime-500);
+  --color-icon-accent-green: var(--color-green-500);
+  --color-icon-accent-emerald: var(--color-emerald-500);
+  --color-icon-accent-teal: var(--color-teal-500);
+  --color-icon-accent-cyan: var(--color-cyan-500);
+  --color-icon-accent-sky: var(--color-sky-500);
+  --color-icon-accent-blue: var(--color-blue-500);
+  --color-icon-accent-indigo: var(--color-indigo-500);
+  --color-icon-accent-violet: var(--color-violet-500);
+  --color-icon-accent-purple: var(--color-purple-500);
+  --color-icon-accent-fuchsia: var(--color-fuchsia-500);
+  --color-icon-accent-pink: var(--color-pink-500);
+  --color-icon-accent-rose: var(--color-rose-500);
+
+  /* Border */
+  --color-border-default: var(--color-taupe-200);
+  --color-border-strong: var(--color-taupe-300);
+  --color-border-subtle: var(--color-taupe-100);
+  --color-border-focused: var(--color-blue-500);
+  --color-border-input: oklch(0.0% 0.000 0.0 / 12%);
+  --color-border-bold: var(--color-taupe-800);
+  --color-border-selected: var(--color-taupe-900);
+  --color-border-inverse: oklch(100.0% 0.000 89.9);
+  --color-border-disabled: oklch(0.0% 0.000 0.0 / 15%);
+  --color-border-success: var(--color-green-500);
+  --color-border-warning: var(--color-amber-500);
+  --color-border-error: var(--color-red-500);
+  --color-border-error-subtle: oklch(63.7% 0.208 25.3 / 10%);
+  --color-border-info: var(--color-blue-500);
+  --color-border-accent-red: oklch(63.7% 0.208 25.3 / 10%);
+  --color-border-accent-orange: oklch(70.5% 0.187 47.6 / 10%);
+  --color-border-accent-amber: oklch(76.9% 0.165 70.1 / 10%);
+  --color-border-accent-yellow: oklch(79.5% 0.162 86.0 / 10%);
+  --color-border-accent-lime: oklch(76.8% 0.204 130.8 / 10%);
+  --color-border-accent-green: oklch(72.3% 0.192 149.6 / 10%);
+  --color-border-accent-emerald: oklch(69.6% 0.149 162.5 / 10%);
+  --color-border-accent-teal: oklch(70.4% 0.123 182.5 / 10%);
+  --color-border-accent-cyan: oklch(71.5% 0.126 215.2 / 10%);
+  --color-border-accent-sky: oklch(68.5% 0.148 237.3 / 10%);
+  --color-border-accent-blue: oklch(62.3% 0.188 259.8 / 10%);
+  --color-border-accent-indigo: oklch(58.5% 0.204 277.1 / 10%);
+  --color-border-accent-violet: oklch(60.6% 0.219 292.7 / 10%);
+  --color-border-accent-purple: oklch(62.7% 0.233 303.9 / 10%);
+  --color-border-accent-fuchsia: oklch(66.7% 0.259 322.1 / 10%);
+  --color-border-accent-pink: oklch(65.6% 0.212 354.3 / 10%);
+  --color-border-accent-rose: oklch(64.5% 0.215 16.4 / 10%);
+
+  /* Blanket */
+  --color-blanket-default: oklch(0.0% 0.000 0.0 / 50%);
+}
+
+/* --- Dark Mode --- */
+
+html.dark {
+  --color-elevation-surface-default: var(--color-taupe-800);
+  --color-elevation-surface-raised-default: var(--color-taupe-750);
+  --color-elevation-surface-raised-hovered: var(--color-taupe-700);
+  --color-elevation-surface-raised-pressed: var(--color-taupe-700);
+  --color-elevation-surface-sunken-default: var(--color-taupe-900);
+  --color-elevation-surface-overlay-default: var(--color-taupe-700);
+  --color-elevation-surface-overlay-hovered: var(--color-taupe-600);
+  --color-elevation-surface-overlay-pressed: var(--color-taupe-600);
+  --color-elevation-shadow-default: oklch(0% 0 0 / 40%);
+  --color-elevation-shadow-strong: oklch(0% 0 0 / 55%);
+
+  --color-interaction-hovered: oklch(100.0% 0.000 89.9 / 5%);
+  --color-interaction-pressed: oklch(100.0% 0.000 89.9 / 10%);
+  --color-interaction-selected: oklch(100.0% 0.000 89.9 / 5%);
+  --color-interaction-disabled: oklch(100.0% 0.000 89.9 / 40%);
+
+  --color-bg-neutral-default: oklch(100.0% 0.000 89.9 / 10.2%);
+  --color-bg-neutral-hovered: oklch(100.0% 0.000 89.9 / 12%);
+  --color-bg-neutral-pressed: oklch(100.0% 0.000 89.9 / 12%);
+  --color-bg-neutral-subtle-default: oklch(100.0% 0.000 89.9 / 4%);
+  --color-bg-neutral-subtle-hovered: oklch(100.0% 0.000 89.9 / 8%);
+  --color-bg-neutral-subtle-pressed: oklch(100.0% 0.000 89.9 / 8%);
+  --color-bg-neutral-bold-default: oklch(100.0% 0.000 89.9);
+  --color-bg-neutral-bold-hovered: var(--color-taupe-200);
+  --color-bg-neutral-bold-pressed: var(--color-taupe-200);
+
+  --color-bg-success-default: oklch(72.3% 0.192 149.6 / 25%);
+  --color-bg-success-hovered: oklch(72.3% 0.192 149.6 / 10%);
+  --color-bg-success-pressed: oklch(72.3% 0.192 149.6 / 10%);
+  --color-bg-success-bold-default: var(--color-green-500);
+  --color-bg-success-bold-hovered: var(--color-green-400);
+  --color-bg-success-bold-pressed: var(--color-green-400);
+
+  --color-bg-warning-default: oklch(76.9% 0.165 70.1 / 25%);
+  --color-bg-warning-hovered: oklch(76.9% 0.165 70.1 / 10%);
+  --color-bg-warning-pressed: oklch(76.9% 0.165 70.1 / 10%);
+  --color-bg-warning-bold-default: var(--color-amber-500);
+  --color-bg-warning-bold-hovered: var(--color-amber-400);
+  --color-bg-warning-bold-pressed: var(--color-amber-400);
+
+  --color-bg-error-default: oklch(63.7% 0.208 25.3 / 25%);
+  --color-bg-error-hovered: oklch(63.7% 0.208 25.3 / 10%);
+  --color-bg-error-pressed: oklch(63.7% 0.208 25.3 / 10%);
+  --color-bg-error-bold-default: var(--color-red-500);
+  --color-bg-error-bold-hovered: var(--color-red-400);
+  --color-bg-error-bold-pressed: var(--color-red-400);
+
+  --color-bg-info-default: oklch(62.3% 0.188 259.8 / 25%);
+  --color-bg-info-hovered: oklch(62.3% 0.188 259.8 / 10%);
+  --color-bg-info-pressed: oklch(62.3% 0.188 259.8 / 10%);
+  --color-bg-info-bold-default: var(--color-blue-500);
+  --color-bg-info-bold-hovered: var(--color-blue-400);
+  --color-bg-info-bold-pressed: var(--color-blue-400);
+
+  --color-bg-input-default: oklch(100.0% 0.000 89.9 / 4%);
+  --color-bg-input-hovered: oklch(100.0% 0.000 89.9 / 8%);
+  --color-bg-input-pressed: oklch(100.0% 0.000 89.9 / 8%);
+  --color-bg-input-disabled: oklch(100.0% 0.000 89.9 / 6%);
+
+  --color-bg-selected-default: oklch(100.0% 0.000 89.9 / 10%);
+  --color-bg-selected-subtle: oklch(100.0% 0.000 89.9 / 6%);
+  --color-bg-disabled: oklch(100.0% 0.000 89.9 / 12%);
+  --color-bg-skeleton: oklch(100.0% 0.000 89.9 / 8%);
+
+  --color-bg-on-image-default: oklch(0.0% 0.000 0.0 / 40%);
+  --color-bg-on-image-hovered: oklch(0.0% 0.000 0.0 / 50%);
+  --color-bg-on-image-pressed: oklch(0.0% 0.000 0.0 / 60%);
+
+  --color-bg-accent-red: oklch(63.7% 0.208 25.3 / 25%);
+  --color-bg-accent-orange: oklch(70.5% 0.187 47.6 / 25%);
+  --color-bg-accent-amber: oklch(76.9% 0.165 70.1 / 25%);
+  --color-bg-accent-yellow: oklch(79.5% 0.162 86.0 / 25%);
+  --color-bg-accent-lime: oklch(76.8% 0.204 130.8 / 25%);
+  --color-bg-accent-green: oklch(72.3% 0.192 149.6 / 25%);
+  --color-bg-accent-emerald: oklch(69.6% 0.149 162.5 / 25%);
+  --color-bg-accent-teal: oklch(70.4% 0.123 182.5 / 25%);
+  --color-bg-accent-cyan: oklch(71.5% 0.126 215.2 / 25%);
+  --color-bg-accent-sky: oklch(68.5% 0.148 237.3 / 25%);
+  --color-bg-accent-blue: oklch(62.3% 0.188 259.8 / 25%);
+  --color-bg-accent-indigo: oklch(58.5% 0.204 277.1 / 25%);
+  --color-bg-accent-violet: oklch(60.6% 0.219 292.7 / 25%);
+  --color-bg-accent-purple: oklch(62.7% 0.233 303.9 / 25%);
+  --color-bg-accent-fuchsia: oklch(66.7% 0.259 322.1 / 25%);
+  --color-bg-accent-pink: oklch(65.6% 0.212 354.3 / 25%);
+  --color-bg-accent-rose: oklch(64.5% 0.215 16.4 / 25%);
+
+  --color-text-default: var(--color-taupe-50);
+  --color-text-subtle: var(--color-taupe-400);
+  --color-text-subtlest: var(--color-taupe-500);
+  --color-text-placeholder: oklch(100.0% 0.000 89.9 / 25%);
+  --color-text-inverse: var(--color-taupe-900);
+  --color-text-inverse-fixed: oklch(100.0% 0.000 89.9);
+  --color-text-selected: oklch(100.0% 0.000 89.9);
+  --color-text-disabled: oklch(100.0% 0.000 89.9 / 30%);
+  --color-text-brand: oklch(100.0% 0.000 89.9);
+  --color-text-link-default: var(--color-blue-400);
+  --color-text-link-hovered: var(--color-blue-300);
+  --color-text-link-visited: var(--color-purple-400);
+  --color-text-success: var(--color-green-400);
+  --color-text-warning: var(--color-amber-400);
+  --color-text-error: var(--color-red-400);
+  --color-text-info: var(--color-blue-400);
+  --color-text-accent-red: var(--color-red-400);
+  --color-text-accent-orange: var(--color-orange-400);
+  --color-text-accent-amber: var(--color-amber-400);
+  --color-text-accent-yellow: var(--color-yellow-400);
+  --color-text-accent-lime: var(--color-lime-400);
+  --color-text-accent-green: var(--color-green-400);
+  --color-text-accent-emerald: var(--color-emerald-400);
+  --color-text-accent-teal: var(--color-teal-400);
+  --color-text-accent-cyan: var(--color-cyan-400);
+  --color-text-accent-sky: var(--color-sky-400);
+  --color-text-accent-blue: var(--color-blue-400);
+  --color-text-accent-indigo: var(--color-indigo-400);
+  --color-text-accent-violet: var(--color-violet-400);
+  --color-text-accent-purple: var(--color-purple-400);
+  --color-text-accent-fuchsia: var(--color-fuchsia-400);
+  --color-text-accent-pink: var(--color-pink-400);
+  --color-text-accent-rose: var(--color-rose-400);
+
+  --color-icon-default: var(--color-taupe-50);
+  --color-icon-subtle: var(--color-taupe-400);
+  --color-icon-subtlest: var(--color-taupe-500);
+  --color-icon-placeholder: oklch(100.0% 0.000 89.9 / 25%);
+  --color-icon-inverse: var(--color-taupe-900);
+  --color-icon-inverse-fixed: oklch(100.0% 0.000 89.9);
+  --color-icon-selected: oklch(100.0% 0.000 89.9);
+  --color-icon-disabled: oklch(100.0% 0.000 89.9 / 25%);
+  --color-icon-brand: oklch(100.0% 0.000 89.9);
+  --color-icon-success: var(--color-green-400);
+  --color-icon-warning: var(--color-amber-400);
+  --color-icon-error: var(--color-red-400);
+  --color-icon-info: var(--color-blue-400);
+  --color-icon-accent-red: var(--color-red-400);
+  --color-icon-accent-orange: var(--color-orange-400);
+  --color-icon-accent-amber: var(--color-amber-400);
+  --color-icon-accent-yellow: var(--color-yellow-400);
+  --color-icon-accent-lime: var(--color-lime-400);
+  --color-icon-accent-green: var(--color-green-400);
+  --color-icon-accent-emerald: var(--color-emerald-400);
+  --color-icon-accent-teal: var(--color-teal-400);
+  --color-icon-accent-cyan: var(--color-cyan-400);
+  --color-icon-accent-sky: var(--color-sky-400);
+  --color-icon-accent-blue: var(--color-blue-400);
+  --color-icon-accent-indigo: var(--color-indigo-400);
+  --color-icon-accent-violet: var(--color-violet-400);
+  --color-icon-accent-purple: var(--color-purple-400);
+  --color-icon-accent-fuchsia: var(--color-fuchsia-400);
+  --color-icon-accent-pink: var(--color-pink-400);
+  --color-icon-accent-rose: var(--color-rose-400);
+
+  --color-border-default: oklch(100.0% 0.000 89.9 / 12%);
+  --color-border-strong: var(--color-taupe-600);
+  --color-border-subtle: var(--color-taupe-800);
+  --color-border-focused: var(--color-blue-600);
+  --color-border-input: oklch(100.0% 0.000 89.9 / 10%);
+  --color-border-bold: oklch(100.0% 0.000 89.9);
+  --color-border-selected: oklch(100.0% 0.000 89.9);
+  --color-border-inverse: oklch(0.0% 0.000 0.0);
+  --color-border-disabled: oklch(100.0% 0.000 89.9 / 10%);
+  --color-border-success: var(--color-green-600);
+  --color-border-warning: var(--color-amber-600);
+  --color-border-error: var(--color-red-600);
+  --color-border-error-subtle: oklch(63.7% 0.208 25.3 / 10%);
+  --color-border-info: var(--color-blue-600);
+  --color-border-accent-red: oklch(63.7% 0.208 25.3 / 10%);
+  --color-border-accent-orange: oklch(70.5% 0.187 47.6 / 10%);
+  --color-border-accent-amber: oklch(76.9% 0.165 70.1 / 10%);
+  --color-border-accent-yellow: oklch(79.5% 0.162 86.0 / 10%);
+  --color-border-accent-lime: oklch(76.8% 0.204 130.8 / 10%);
+  --color-border-accent-green: oklch(72.3% 0.192 149.6 / 10%);
+  --color-border-accent-emerald: oklch(69.6% 0.149 162.5 / 10%);
+  --color-border-accent-teal: oklch(70.4% 0.123 182.5 / 10%);
+  --color-border-accent-cyan: oklch(71.5% 0.126 215.2 / 10%);
+  --color-border-accent-sky: oklch(68.5% 0.148 237.3 / 10%);
+  --color-border-accent-blue: oklch(62.3% 0.188 259.8 / 10%);
+  --color-border-accent-indigo: oklch(58.5% 0.204 277.1 / 10%);
+  --color-border-accent-violet: oklch(60.6% 0.219 292.7 / 10%);
+  --color-border-accent-purple: oklch(62.7% 0.233 303.9 / 10%);
+  --color-border-accent-fuchsia: oklch(66.7% 0.259 322.1 / 10%);
+  --color-border-accent-pink: oklch(65.6% 0.212 354.3 / 10%);
+  --color-border-accent-rose: oklch(64.5% 0.215 16.4 / 10%);
+
+  --color-blanket-default: oklch(0.0% 0.000 0.0 / 70%);
+}
