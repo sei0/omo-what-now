@@ -27,10 +27,11 @@ const TONE_DOT: Record<"info" | "warning" | "success" | "neutral", string> = {
 
 function shiftTitle(a: Assignment, startAt: string): string {
   if (a.isAllHands) return "전원 참여";
+  if (a.subRole) return a.subRole;
   const meta = ROLE_META[a.role];
-  const short =
-    a.role === "setup" && formatHHMM(startAt) === "17:30" ? "철수" : meta.short;
-  return a.subRole ? `${short} · ${a.subRole}` : short;
+  return a.role === "setup" && formatHHMM(startAt) === "17:30"
+    ? "철수"
+    : meta.short;
 }
 
 function shiftDescription(a: Assignment): string {
