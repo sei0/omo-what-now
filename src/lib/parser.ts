@@ -27,10 +27,24 @@ function parseTimeRange(raw: string, eventDate: string): { start: string; end: s
 }
 
 function splitNames(raw: string): string[] {
-  return raw
-    .split(/[,，、]/)
-    .map((s) => s.trim())
-    .filter(Boolean);
+  // Split on commas, but not inside parentheses (e.g. "홍인표(마이크/좌석 보조)").
+  const out: string[] = [];
+  let depth = 0;
+  let buf = "";
+  for (const ch of raw) {
+    if (ch === "(" || ch === "（") depth++;
+    else if (ch === ")" || ch === "）") depth = Math.max(0, depth - 1);
+    if (depth === 0 && (ch === "," || ch === "，" || ch === "、")) {
+      const t = buf.trim();
+      if (t) out.push(t);
+      buf = "";
+      continue;
+    }
+    buf += ch;
+  }
+  const tail = buf.trim();
+  if (tail) out.push(tail);
+  return out;
 }
 
 function looksLikeHumanName(token: string): boolean {
@@ -39,6 +53,31 @@ function looksLikeHumanName(token: string): boolean {
   if (t.length > 6) return false;
   if (/[:：/\n]/.test(t)) return false;
   return /^[가-힣A-Za-z][가-힣A-Za-z\s.]*$/.test(t);
+}
+
+// Matches "이름(부역할)" — e.g. "정지혁(발표자 대기 리드)", "홍인표(마이크/좌석 보조)".
+const PAREN_SUBROLE_RE = /^([^()（）]+)\s*[（(]\s*(.+?)\s*[)）]\s*$/;
+
+function parseTokenWithOptionalSubRole(
+  token: string,
+): AssignedPerson | null {
+  const trimmed = token.trim();
+  if (!trimmed) return null;
+
+  const m = trimmed.match(PAREN_SUBROLE_RE);
+  if (m) {
+    const name = m[1].trim();
+    const subRole = m[2].trim();
+    if (looksLikeHumanName(name)) {
+      return subRole ? { name, subRole } : { name };
+    }
+    return null;
+  }
+
+  if (looksLikeHumanName(trimmed)) {
+    return { name: trimmed };
+  }
+  return null;
 }
 
 export function parseRoleCell(raw: string): {
@@ -52,37 +91,34 @@ export function parseRoleCell(raw: string): {
     return { people: [], isAllHands: true };
   }
 
-  const hasSubRole = trimmed.includes(":") || trimmed.includes("：");
-  if (hasSubRole) {
+  const hasGroupSubRole = trimmed.includes(":") || trimmed.includes("：");
+  if (hasGroupSubRole) {
     const result: AssignedPerson[] = [];
     const segments = trimmed.split(/\s*\/\s*/);
     for (const seg of segments) {
       const colonMatch = seg.match(/^([^:：]+)[:：]\s*(.+)$/);
       if (colonMatch) {
         const subRole = colonMatch[1].trim();
-        const names = splitNames(colonMatch[2]);
-        for (const name of names) {
-          if (looksLikeHumanName(name)) {
-            result.push({ name, subRole });
+        for (const token of splitNames(colonMatch[2])) {
+          const parsed = parseTokenWithOptionalSubRole(token);
+          if (parsed) {
+            result.push({ name: parsed.name, subRole: parsed.subRole ?? subRole });
           }
         }
       } else {
-        for (const name of splitNames(seg)) {
-          if (looksLikeHumanName(name)) {
-            result.push({ name });
-          }
+        for (const token of splitNames(seg)) {
+          const parsed = parseTokenWithOptionalSubRole(token);
+          if (parsed) result.push(parsed);
         }
       }
     }
     return { people: result, isAllHands: false };
   }
 
-  const names = splitNames(trimmed);
   const people: AssignedPerson[] = [];
-  for (const name of names) {
-    if (looksLikeHumanName(name)) {
-      people.push({ name });
-    }
+  for (const token of splitNames(trimmed)) {
+    const parsed = parseTokenWithOptionalSubRole(token);
+    if (parsed) people.push(parsed);
   }
   return { people, isAllHands: false };
 }
